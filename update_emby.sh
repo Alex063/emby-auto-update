@@ -6,11 +6,12 @@
 # ======================================================
 
 # === Настройки ===
+source "$(dirname "$0")/.env"
 REPO_API="https://api.github.com/repos/MediaBrowser/Emby.Releases/releases/latest"
 TMP_DIR="/tmp/emby_update"
 VERSION_FILE="/var/lib/emby/.emby_version.txt"
-TELEGRAM_TOKEN="ТОКЕН_БОТА"        # <-- вставь свой
-TELEGRAM_CHAT_ID="ID_ЧАТА"         # <-- вставь свой
+TELEGRAM_TOKEN=$TELEGRAM_TOKEN             # <-- вставь свой
+TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID         # <-- вставь свой
 LOG_FILE="/var/log/emby_update.log"
 
 # === Подготовка окружения ===
