@@ -32,7 +32,7 @@
 ### 1. Клонируем репозиторий
 
 ```bash
-git clone https://github.com/<USERNAME>/emby-auto-update.git
+git clone https://github.com/Alex063/emby-auto-update.git
 cd emby-auto-update
 ```
 
@@ -90,13 +90,13 @@ sudo crontab -e
 Добавьте строку:
 
 ```
-0 4 * * 1 /usr/local/bin/update_emby.sh
+0 4 * * 1 /usr/local/bin/update_emby.sh >> /var/log/cron_update_emby.log 2>&1
 ```
 
 или, если запускаете прямо из репозитория:
 
 ```
-0 4 * * 1 /root/emby-auto-update/update_emby.sh
+0 4 * * 1 /root/emby-auto-update/update_emby.sh >> /var/log/cron_update_emby.log 2>&1
 ```
 
 ---
@@ -138,6 +138,7 @@ emby-auto-update/
 ## 🧠 Примечания
 
 - Лог обновлений сохраняется в `/var/log/emby_update.log`
+- Лог выполнения задания cron сохраняется в `/var/log/cron_update_emby.log`
 - Временные файлы — в `/tmp/emby_update/`
 - Скрипт требует root-доступ (используется `dpkg`, `systemctl`)
 - Можно использовать `sudo` или настроить cron для root
